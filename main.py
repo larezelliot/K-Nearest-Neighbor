@@ -70,6 +70,7 @@ if __name__ == '__main__':
     wrong_predictions = 0
 
     start = time.time()
+    i = 0
     for el in test_data:
         parameters = el[0]
         label = el[1]
@@ -78,7 +79,10 @@ if __name__ == '__main__':
         if predicted_label == label:
             right_predictions += 1
         else:
+            print(f'Wrong prediction at {i}.')
+            print(f'\t({label}) expected ({predicted_label} found).')
             wrong_predictions += 1
+        i += 1
     end = time.time()
     print(
         f'Time in seconds to analyze \'MNIST_test_HW2.csv\' using KNN on \'MNIST_training_HW2.csv\': {end-start}')
